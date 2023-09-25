@@ -11,8 +11,14 @@ class FibonacciTest {
 
     @ParameterizedTest()
     @MethodSource("provideTestData")
-    void reduce(int index, long expected) {
+    void recursive(int index, long expected) {
         Assertions.assertEquals(Fibonacci.recursive(index), expected);
+    }
+
+    @ParameterizedTest()
+    @MethodSource("provideTestData")
+    void memoization(int index, long expected) {
+        Assertions.assertEquals(Fibonacci.memoization(index), expected);
     }
 
     private static Stream<Arguments> provideTestData() {
