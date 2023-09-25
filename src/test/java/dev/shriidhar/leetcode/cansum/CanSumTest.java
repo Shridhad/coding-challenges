@@ -16,6 +16,12 @@ class CanSumTest {
         Assertions.assertEquals(expected, CanSum.bruteForce(target, list));
     }
 
+    @ParameterizedTest()
+    @MethodSource("provideTestData")
+    void memoization(List<Long> list, long target, boolean expected) {
+        Assertions.assertEquals(expected, CanSum.memoization(target, list));
+    }
+
     private static Stream<Arguments> provideTestData() {
         return Stream.of(
                 Arguments.of(List.of(4L, 6L ,8L), 10, true),
