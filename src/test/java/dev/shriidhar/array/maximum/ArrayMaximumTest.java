@@ -11,7 +11,7 @@ class ArrayMaximumTest {
 
     @ParameterizedTest()
     @MethodSource("provideTestData")
-    void reduce(int[] list, String result) {
+    void maximum(int[] list, String result) {
         Assertions.assertEquals(ArrayMaximum.find(list), result);
     }
 

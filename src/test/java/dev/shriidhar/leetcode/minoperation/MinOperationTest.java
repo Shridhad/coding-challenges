@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 class MinOperationTest {
     @ParameterizedTest()
     @MethodSource("provideTestData")
-    void reduce(int[] list, int total, int result) {
+    void minOperations(int[] list, int total, int result) {
         Assertions.assertEquals(MinOperation.minOperations(list, total), result);
     }
 
