@@ -15,6 +15,12 @@ class HowSumTest {
         Assertions.assertEquals(expected, HowSum.bruteForce(target, list));
     }
 
+    @ParameterizedTest()
+    @MethodSource("provideTestData")
+    void memoization(List<Long> list, long target, List<Long> expected) {
+        Assertions.assertEquals(expected, HowSum.memoization(target, list));
+    }
+
     private static Stream<Arguments> provideTestData() {
         return Stream.of(
                 Arguments.of(List.of(4L, 6L, 8L), 10, List.of(6L, 4L)),
