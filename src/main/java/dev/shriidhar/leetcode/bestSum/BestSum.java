@@ -1,18 +1,19 @@
-package dev.shriidhar.leetcode.howsum;
+package dev.shriidhar.leetcode.bestSum;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class HowSum {
+public class BestSum {
+
 
     /**
-     * Brute Force approach to find array of numbers that add up to the target.
+     * Brute Force approach to find array of numbers that sum up to the target.
 
      * Note: We are using `ArrayList` so we can mutate it as we recurse through input array.
 
      * Time Complexity = O(n ^ m) [m = target sum, n = array length]
-     * Space Complexity = O(m)
+     * Space Complexity = O(m ^ 2)
      *
      * @param target    A target sum to be generated
      * @param numbers   Array of numbers
@@ -20,22 +21,26 @@ public class HowSum {
      */
     public static List<Long> bruteForce(Long target, List<Long> numbers) {
         if (target == 0) return new ArrayList<>();
-        if (target < 0 || numbers.isEmpty()) return null;
+        if (target < 0) return null;
+
+        List<Long> bestResult = null;
 
         for (long number: numbers) {
             long remainder = target - number;
             List<Long> result = bruteForce(remainder, numbers);
             if (result != null) {
                 result.add(number);
-                return result;
+                if (bestResult == null || result.size() < bestResult.size()) {
+                    bestResult = result;
+                }
             }
         }
 
-        return null;
+        return bestResult;
     }
 
     /**
-     * Memoization approach to find array of numbers that add up to the target.
+     * Memoization approach to find array of numbers that sum up to the target.
 
      * Note: We are using `ArrayList` so we can mutate it as we recurse through input array.
 
@@ -56,16 +61,21 @@ public class HowSum {
         if (target == 0) return new ArrayList<>();
         if (target < 0 || numbers.isEmpty()) return null;
 
+        List<Long> bestResult = null;
+
         for (long number: numbers) {
             long remainder = target - number;
             List<Long> result = recurse(memo, remainder, numbers);
             if (result != null) {
-                result.add(number);
-                memo.put(target, result);
-                return result;
+                List<Long> copy = new ArrayList<>(result);
+                copy.add(number);
+                if (bestResult == null || copy.size() < bestResult.size()) {
+                    bestResult = copy;
+                }
             }
         }
-        memo.put(target, null);
-        return null;
+        memo.put(target, bestResult);
+        return bestResult;
     }
+
 }

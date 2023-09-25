@@ -14,6 +14,6 @@ Input: `numbers = [5, 3, 4, 7], target = 7` <br />
 Output: `[3,4] or [7] or [4,3]`
 
 Input: `numbers = [5, 4], target = 7` <br />
-Output: `null`
+Output: `null `
 
 
