@@ -8,11 +8,11 @@ public class BestSum {
 
 
     /**
-     * Brute Force approach to find array of numbers that sum up to the target.
+     * Brute Force approach to find the shortest array of numbers that sum up to the target.
 
      * Note: We are using `ArrayList` so we can mutate it as we recurse through input array.
 
-     * Time Complexity = O(n ^ m) [m = target sum, n = array length]
+     * Time Complexity = O(m * n ^ m) [m = target sum, n = array length]
      * Space Complexity = O(m ^ 2)
      *
      * @param target    A target sum to be generated
@@ -40,11 +40,11 @@ public class BestSum {
     }
 
     /**
-     * Memoization approach to find array of numbers that sum up to the target.
+     * Memoization approach to find the shortest array of numbers that sum up to the target.
 
      * Note: We are using `ArrayList` so we can mutate it as we recurse through input array.
 
-     * Time Complexity = O(n * m) [m = target sum, n = array length]
+     * Time Complexity = O(n * m ^ 2) [m = target sum, n = array length]
      * Space Complexity = O(m ^ 2)
      *
      * @param target    A target sum to be generated
