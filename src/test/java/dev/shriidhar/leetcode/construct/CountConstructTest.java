@@ -16,6 +16,12 @@ class CountConstructTest {
         Assertions.assertEquals(expected, CountConstruct.bruteForce(words, target));
     }
 
+    @ParameterizedTest
+    @MethodSource("dataSource")
+    void memoization(List<String> words, String target, int expected) {
+        Assertions.assertEquals(expected, CountConstruct.memoization(words, target));
+    }
+
     public static Stream<Arguments> dataSource() {
         return Stream.of(
                 Arguments.of(List.of("ab", "abc", "cd", "def", "abcd"), "abcdef", 2),
