@@ -1,4 +1,4 @@
-package dev.shriidhar.leetcode.cansum;
+package dev.shriidhar.leetcode.sum;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;

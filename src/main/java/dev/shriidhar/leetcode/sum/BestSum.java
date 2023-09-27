@@ -1,4 +1,4 @@
-package dev.shriidhar.leetcode.bestSum;
+package dev.shriidhar.leetcode.sum;
 
 import java.util.ArrayList;
 import java.util.HashMap;

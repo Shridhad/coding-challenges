@@ -1,4 +1,4 @@
-package dev.shriidhar.leetcode.cansum;
+package dev.shriidhar.leetcode.sum;
 
 import java.util.HashMap;
 import java.util.List;
