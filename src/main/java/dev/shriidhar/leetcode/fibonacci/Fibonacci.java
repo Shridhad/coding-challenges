@@ -14,11 +14,11 @@ public class Fibonacci {
      * @param n number
      * @return  returns the nth number in fibonacci series
      */
-    public static long recursive(int n) {
+    public static long bruteForce(int n) {
         if (n <= 2) {
             return 1;
         }
-        return recursive(n-1) + recursive(n-2);
+        return bruteForce(n-1) + bruteForce(n-2);
     }
 
     /**
@@ -32,17 +32,38 @@ public class Fibonacci {
      */
     public static long memoization(int number) {
         HashMap<Integer, Long> memo = new HashMap<>();
-        return recursive(memo, number);
+        return recurse(memo, number);
     }
 
-    private static long recursive(HashMap<Integer, Long> memo, int number) {
+    private static long recurse(HashMap<Integer, Long> memo, int number) {
         if (number <= 2) {
             return 1;
         }
         if (memo.containsKey(number)) {
             return memo.get(number);
         }
-        memo.put(number, recursive(memo,number - 1) + recursive(memo,number - 2));
+        memo.put(number, recurse(memo,number - 1) + recurse(memo,number - 2));
         return memo.get(number);
+    }
+
+    /**
+     * Tabulation is one of the overarching strategy to solve dynamic programming problem.
+     *
+     * Time Complexity: O(n)
+     * Space Complexity: O(n)
+     *
+     * @param number number
+     * @return returns the nth number in fibonacci series
+     */
+    public static long tabulation(int number) {
+        if (number <= 1) return number;
+        long[] series = new long[number + 2];
+        series[1] = 1;
+        for(int index = 1; index < number; index++) {
+            series[index + 1] += series[index];
+            series[index + 2] += series[index];
+        }
+
+        return series[number];
     }
 }

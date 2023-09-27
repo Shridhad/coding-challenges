@@ -11,14 +11,20 @@ class FibonacciTest {
 
     @ParameterizedTest()
     @MethodSource("provideTestData")
-    void recursive(int index, long expected) {
-        Assertions.assertEquals(Fibonacci.recursive(index), expected);
+    void bruteForce(int index, long expected) {
+        Assertions.assertEquals(Fibonacci.bruteForce(index), expected);
     }
 
     @ParameterizedTest()
     @MethodSource("provideTestData")
     void memoization(int index, long expected) {
         Assertions.assertEquals(Fibonacci.memoization(index), expected);
+    }
+
+    @ParameterizedTest()
+    @MethodSource("provideTestData")
+    void tabulation(int index, long expected) {
+        Assertions.assertEquals(Fibonacci.tabulation(index), expected);
     }
 
     private static Stream<Arguments> provideTestData() {
