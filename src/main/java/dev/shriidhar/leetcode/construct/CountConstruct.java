@@ -9,7 +9,7 @@ public class CountConstruct {
     /**
      * Brute Force approach to count number ways the target string can be constructed from given dictionary of words
      *
-     * Time Complexity = O(m * n ^ m) [m = target sum, n = array length]
+     * Time Complexity = O(m * n ^ m) [m = target string length, n = array length]
      * Space Complexity = O(m ^ 2)
      *
      * @param words  dictionary of words
@@ -39,7 +39,7 @@ public class CountConstruct {
     /**
      * Memoization approach to count number ways the target string can be constructed from given dictionary of words
      *
-     * Time Complexity = O(n * m ^ 2) [m = target sum, n = array length]
+     * Time Complexity = O(n * m ^ 2) [m = target string length, n = array length]
      * Space Complexity = O(m ^ 2)
      *
      * @param words  dictionary of words

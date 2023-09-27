@@ -18,6 +18,12 @@ class AllConstructTest {
         Assertions.assertEquals(expected, AllConstruct.bruteForce(words, target));
     }
 
+    @ParameterizedTest
+    @MethodSource("dataSource")
+    void memoization(List<String> words, String target, List<List<String>> expected) {
+        Assertions.assertEquals(expected, AllConstruct.bruteForce(words, target));
+    }
+
     public static Stream<Arguments> dataSource() {
         return Stream.of(
                 Arguments.of(List.of("ab", "abc", "cd", "def", "abcd"), "abcdef", List.of(List.of("abc", "def"))),
