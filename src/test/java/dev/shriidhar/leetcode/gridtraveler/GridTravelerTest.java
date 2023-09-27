@@ -11,8 +11,14 @@ class GridTravelerTest {
 
     @ParameterizedTest()
     @MethodSource("provideTestData")
-    void travel(int rows, int columns, long expected) {
-        Assertions.assertEquals(GridTraveler.travel(rows, columns), expected);
+    void memoization(int rows, int columns, long expected) {
+        Assertions.assertEquals(GridTraveler.memoization(rows, columns), expected);
+    }
+
+    @ParameterizedTest()
+    @MethodSource("provideTestData")
+    void tabulation(int rows, int columns, long expected) {
+        Assertions.assertEquals(GridTraveler.tabulation(rows, columns), expected);
     }
 
     private static Stream<Arguments> provideTestData() {
