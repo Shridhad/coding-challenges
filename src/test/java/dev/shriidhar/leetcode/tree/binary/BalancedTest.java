@@ -16,6 +16,12 @@ class BalancedTest {
         Assertions.assertEquals(expected, Balanced.bruteForce(root));
     }
 
+    @ParameterizedTest()
+    @MethodSource("testData")
+    void upwardTraversal(Node<String> root, boolean expected) {
+        Assertions.assertEquals(expected, Balanced.upwards(root));
+    }
+
     private static Stream<Arguments> testData() {
         return Stream.of(
                 Arguments.of(new Node<>("root").addLeft("left").addRight("right"), true),
